@@ -1,3 +1,17 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "@typescript-eslint", 
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "error"
+  }
 }
