@@ -2,6 +2,7 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "extends": [
+    "plugin:storybook/recommended",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "prettier"
