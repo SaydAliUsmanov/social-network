@@ -22,18 +22,22 @@ export interface IShape {
   borderRadius: string;
 }
 
+export interface IColor {
+  primary: string;
+  secondary: string;
+  accent: string;
+  background: string;
+  text: string;
+  lightText: string;
+  error: string;
+}
+
+export type ColorKeys = keyof IColor;
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     name: string;
-    colors: {
-      primary: string;
-      secondary: string;
-      accent: string;
-      background: string;
-      text: string;
-      lightText: string;
-      error: string;
-    };
+    colors: IColor;
     breakpoints: IBreakpoints & {
       max: MediaCreator;
       min: MediaCreator;

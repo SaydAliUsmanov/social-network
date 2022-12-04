@@ -1,46 +1,34 @@
-import { HTMLAttributes } from 'react';
-import styled, { css } from 'styled-components';
+import { HTMLAttributes, ReactNode, useRef } from 'react';
+import { ColorKeys } from 'shared/styles/styled';
+import * as Styles from './styles';
 
-export const Root = styled.button<{ variant: ButtonProps['variant']; small: ButtonProps['small'] }>`
-  border: 1px solid transparent;
-  background-color: transparent;
-  color: #333;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-
-  ${({ variant }) => {
-    switch (variant) {
-      case 'contained':
-        return css`
-          background-color: #007fff;
-          color: #fff;
-        `;
-      case 'outlined':
-        return css`
-          background-color: transparent;
-          color: #007fff;
-          border-color: #007fff;
-        `;
-    }
-  }}
-
-  ${({ small }) =>
-    small &&
-    css`
-      padding: 8px 16px;
-    `}
-`;
-
-export type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   variant?: 'outlined' | 'contained' | 'text';
+  /**
+   * Делает высоту чуть меньше
+   */
   small?: boolean;
-};
+  color?: ColorKeys;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
+}
 
-export const Button = ({ children, variant = 'text', small = false, ...props }: ButtonProps) => {
+export const Button = ({
+  children,
+  variant = 'text',
+  small = false,
+  color = 'primary',
+  startIcon,
+  endIcon,
+  ...props
+}: ButtonProps) => {
+  const ref = useRef<HTMLButtonElement>(null);
+
   return (
-    <Root small={small} variant={variant} {...props}>
+    <Styles.Root ref={ref} color={color} small={small} variant={variant} {...props}>
+      {startIcon && <Styles.StartIcon>{startIcon}</Styles.StartIcon>}
       {children}
-    </Root>
+      {endIcon && <Styles.EndIcon>{endIcon}</Styles.EndIcon>}
+    </Styles.Root>
   );
 };

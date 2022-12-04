@@ -30,8 +30,8 @@ const shape: IShape = {
 };
 
 const typography: ITypography = {
-  text: '1rem',
-  text2: '0.875rem',
+  text: '0.875rem',
+  text2: '0.75rem',
   h1: '4rem',
   h2: '2.25rem',
   h3: '1.5rem',

@@ -1,26 +1,32 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { IconSettings } from '@tabler/icons';
 
 import { Button } from './';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'ui/Button',
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    startIcon: {
+      control: {
+        type: null,
+      },
+    },
+    endIcon: {
+      control: {
+        type: null,
+      },
+    },
   },
 } as ComponentMeta<typeof Button>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Contained = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Contained.args = {
   children: 'Button',
   variant: 'contained',
+  color: 'primary',
 };
 
 export const Outlined = Template.bind({});
@@ -33,4 +39,20 @@ export const Text = Template.bind({});
 Text.args = {
   children: 'Button',
   variant: 'text',
+};
+
+export const WithStartIcon = Template.bind({});
+WithStartIcon.args = {
+  children: 'Button',
+  variant: 'contained',
+  color: 'primary',
+  startIcon: <IconSettings stroke={1.5} />,
+};
+
+export const WithEndIcon = Template.bind({});
+WithEndIcon.args = {
+  children: 'Button',
+  variant: 'contained',
+  color: 'primary',
+  endIcon: <IconSettings stroke={1.5} />,
 };
