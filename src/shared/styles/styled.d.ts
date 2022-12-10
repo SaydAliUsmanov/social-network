@@ -1,4 +1,5 @@
 import 'styled-components';
+import {} from 'styled-components/cssprop';
 
 export type MediaCreator = (breakpoint: keyof IBreakpoints) => string;
 
@@ -30,6 +31,8 @@ export interface IColor {
   text: string;
   lightText: string;
   error: string;
+  paper: string;
+  shadow: string;
 }
 
 export type ColorKeys = keyof IColor;

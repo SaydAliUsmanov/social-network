@@ -10,8 +10,10 @@ export const Root = styled.button<{
   variant: RequiredButtonProps['variant'];
   small: RequiredButtonProps['small'];
   color: RequiredButtonProps['color'];
+  touched: boolean;
 }>`
-  border: 1px solid transparent;
+  position: relative;
+  border: none;
   background-color: transparent;
   color: ${({ theme, color }) => theme.colors[color]};
   padding: 4px 16px;
@@ -23,6 +25,8 @@ export const Root = styled.button<{
   font-size: ${({ theme }) => theme.typography.text};
   line-height: ${({ theme }) => theme.typography.text};
   transition: all 150ms linear;
+
+  transform: scale(${({ touched }) => (touched ? 0.95 : 1)});
 
   :hover {
     color: ${({ theme, color }) => pSBC(PERCENTAGE, theme.colors[color])};
@@ -43,6 +47,8 @@ export const Root = styled.button<{
         return css`
           background-color: transparent;
           color: ${theme.colors[color]};
+          border-width: 1px;
+          border-style: solid;
           border-color: ${theme.colors[color]};
           :hover {
             color: ${pSBC(PERCENTAGE, theme.colors[color])};
@@ -62,16 +68,20 @@ export const Root = styled.button<{
 const iconStyle = css`
   display: flex;
   align-items: center;
+  & svg {
+    width: 1.5em;
+    height: 1.5em;
+  }
 `;
 
 export const StartIcon = styled.span`
   ${iconStyle}
-  margin-right: 4px;
+  margin-right: 6px;
   margin-left: -1px;
 `;
 
 export const EndIcon = styled.span`
   ${iconStyle}
-  margin-left: 4px;
+  margin-left: 6px;
   margin-right: -1px;
 `;

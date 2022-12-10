@@ -1,4 +1,3 @@
-import 'reset-css';
 import { createGlobalStyle } from 'styled-components';
 import '@fontsource/noto-sans';
 
@@ -14,6 +13,14 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Noto Sans";
     -webkit-tap-highlight-color: transparent;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  ul, li {
+    list-style: none;
   }
 
 
@@ -32,12 +39,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.colors.background};
-  }
-
-  #root {
-    width: 100%;
-    height: 100%;
+    background-color: ${({ theme }) => theme.colors.accent};
   }
 `;
 

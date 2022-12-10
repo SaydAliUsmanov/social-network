@@ -52,10 +52,12 @@ export const light: DefaultTheme = {
     primary: '#007fff',
     secondary: '#4b5d7b',
     accent: '#fff',
-    background: '#f9fafb',
+    background: '#fff',
     text: '#4b5d7b',
     lightText: '#939eaf',
     error: '#fd4d4d',
+    paper: '#fff',
+    shadow: 'rgba(36, 36, 36, 0.2)',
   },
 };
 
@@ -65,10 +67,12 @@ export const dark: DefaultTheme = {
   colors: {
     primary: '#007fff',
     secondary: '#4b5d7b',
-    accent: '#fff',
+    accent: '#191c21',
     background: '#333',
-    text: '#4b5d7b',
+    text: '#edeff2',
     lightText: '#939eaf',
     error: '#fd4d4d',
+    paper: '#191c21',
+    shadow: 'rgba(210, 210, 210, 0.2)',
   },
 };
