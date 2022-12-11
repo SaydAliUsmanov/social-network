@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { DefaultTheme } from 'styled-components';
+import { css, DefaultTheme } from 'styled-components';
 import { IBreakpoints, IShape, ITypography, MediaCreator } from './styled';
 
 const generateMediaCreator = (type: string): MediaCreator => {
@@ -30,12 +30,72 @@ const shape: IShape = {
 };
 
 const typography: ITypography = {
-  text: '0.875rem',
-  text2: '0.75rem',
-  h1: '4rem',
-  h2: '2.25rem',
-  h3: '1.5rem',
-  caption: '0.75rem',
+  heading1: css`
+    font-size: 30px;
+    line-height: 46px;
+    font-weight: 900;
+  `,
+  heading2: css`
+    font-size: 26px;
+    line-height: 40px;
+    font-weight: 700;
+  `,
+  heading3: css`
+    font-size: 18px;
+    line-height: 40px;
+    font-weight: 700;
+  `,
+  displayBold: css`
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  `,
+  displayMedium: css`
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 500;
+  `,
+  bodyMedium: css`
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+  `,
+  bodyBold: css`
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 700;
+  `,
+  bodyRegular: css`
+    font-size: 14px;
+    font-weight: 22px;
+    font-weight: 400;
+  `,
+
+  bodyMedium2: css`
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 500;
+  `,
+  bodyMedium3: css`
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+  `,
+  bodyRegular2: css`
+    font-style: 12px;
+    line-height: 18px;
+    font-weight: 400;
+  `,
+  bodyRegularM4: css`
+    font-size: 10px;
+    line-height: 16px;
+    font-weight: 500;
+  `,
+  bodyRegular4: css`
+    font-size: 10px;
+    line-height: 16px;
+    font-weight: 400;
+  `,
 };
 
 const common = {

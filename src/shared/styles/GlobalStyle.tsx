@@ -4,9 +4,6 @@ import '@fontsource/noto-sans';
 const GlobalStyle = createGlobalStyle`
   :root {
     font-size: 16px;
-    ${({ theme }) => theme.breakpoints.max('tablet')} {
-      font-size: 14px;
-    }
   }
 
   *, *::before, *::after {

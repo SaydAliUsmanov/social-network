@@ -1,7 +1,8 @@
 import 'styled-components';
+import { FlattenSimpleInterpolation } from 'styled-components';
 import {} from 'styled-components/cssprop';
 
-export type MediaCreator = (breakpoint: keyof IBreakpoints) => string;
+export type MediaCreator = (breakpoint: BreakPointsValues) => string;
 
 export interface IBreakpoints {
   desktop: number;
@@ -10,13 +11,22 @@ export interface IBreakpoints {
   mobile: number;
 }
 
+export type BreakPointsValues = keyof IBreakpoints;
+
 export interface ITypography {
-  h1: string;
-  h2: string;
-  h3: string;
-  text: string;
-  text2: string;
-  caption: string;
+  heading1: FlattenSimpleInterpolation;
+  heading2: FlattenSimpleInterpolation;
+  heading3: FlattenSimpleInterpolation;
+  displayBold: FlattenSimpleInterpolation;
+  displayMedium: FlattenSimpleInterpolation;
+  bodyBold: FlattenSimpleInterpolation;
+  bodyMedium: FlattenSimpleInterpolation;
+  bodyRegular: FlattenSimpleInterpolation;
+  bodyMedium2: FlattenSimpleInterpolation;
+  bodyMedium3: FlattenSimpleInterpolation;
+  bodyRegular2: FlattenSimpleInterpolation;
+  bodyRegularM4: FlattenSimpleInterpolation;
+  bodyRegular4: FlattenSimpleInterpolation;
 }
 
 export interface IShape {

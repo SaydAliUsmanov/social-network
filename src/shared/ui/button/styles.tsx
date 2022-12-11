@@ -22,8 +22,7 @@ export const Root = styled.button<{
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  font-size: ${({ theme }) => theme.typography.text};
-  line-height: ${({ theme }) => theme.typography.text};
+  ${({ theme }) => theme.typography.displayMedium};
   transition: all 150ms linear;
 
   transform: scale(${({ touched }) => (touched ? 0.95 : 1)});
