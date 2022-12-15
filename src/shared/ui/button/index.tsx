@@ -58,8 +58,6 @@ export const Button = ({
     }
   };
 
-  console.log(startIcon);
-
   return (
     <Styles.Root
       as={as}
@@ -76,7 +74,7 @@ export const Button = ({
         <Styles.StartIcon className={buttonClasses.startIcon}>{startIcon}</Styles.StartIcon>
       )}
       {children}
-      {endIcon && <Styles.EndIcon className='endIcon'>{buttonClasses.endIcon}</Styles.EndIcon>}
+      {endIcon && <Styles.EndIcon className='endIcon'>{endIcon}</Styles.EndIcon>}
     </Styles.Root>
   );
 };

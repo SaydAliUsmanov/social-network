@@ -43,9 +43,12 @@ export interface IColor {
   error: string;
   paper: string;
   shadow: string;
+  backdrop: string;
 }
 
 export type ColorKeys = keyof IColor;
+
+export type ZIndex = Record<'modal', number>;
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -58,5 +61,6 @@ declare module 'styled-components' {
     typography: ITypography;
     shadows: string[];
     shape: IShape;
+    zIndex: ZIndex;
   }
 }

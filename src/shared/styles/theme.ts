@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { css, DefaultTheme } from 'styled-components';
-import { IBreakpoints, IShape, ITypography, MediaCreator } from './styled';
+import { IBreakpoints, IShape, ITypography, MediaCreator, ZIndex } from './styled';
 
 const generateMediaCreator = (type: string): MediaCreator => {
   return function (breakpoint) {
@@ -98,11 +98,16 @@ const typography: ITypography = {
   `,
 };
 
+const zIndex: ZIndex = {
+  modal: 1500,
+};
+
 const common = {
   breakpoints,
   shadows,
   shape,
   typography,
+  zIndex,
 };
 
 export const light: DefaultTheme = {
@@ -118,6 +123,7 @@ export const light: DefaultTheme = {
     error: '#fd4d4d',
     paper: '#fff',
     shadow: 'rgba(36, 36, 36, 0.2)',
+    backdrop: 'rgba(51, 62, 82, 0.5)',
   },
 };
 
@@ -134,5 +140,6 @@ export const dark: DefaultTheme = {
     error: '#fd4d4d',
     paper: '#191c21',
     shadow: 'rgba(210, 210, 210, 0.2)',
+    backdrop: 'rgba(33, 40, 51, 0.8)',
   },
 };
