@@ -6,7 +6,7 @@ import {
   IconLayoutDashboard,
 } from '@tabler/icons';
 import Link from 'next/link';
-import { Button, buttonClasses } from 'shared/ui/button';
+import { Button, buttonClasses } from 'shared/ui/Button';
 import { css } from 'styled-components';
 import * as Styles from './styles';
 

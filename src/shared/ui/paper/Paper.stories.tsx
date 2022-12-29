@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { hideControls } from 'shared/lib/storybook/hideControls';
 
-import { Paper } from './';
+import { Paper } from '.';
 
 export default {
   title: 'ui/Paper',

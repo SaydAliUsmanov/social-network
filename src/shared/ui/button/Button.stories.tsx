@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconSettings } from '@tabler/icons';
 import { hideControls } from 'shared/lib/storybook/hideControls';
 
-import { Button } from './';
+import { Button } from '.';
 
 export default {
   title: 'ui/Button',

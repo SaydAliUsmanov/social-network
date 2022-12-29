@@ -1,4 +1,4 @@
-import { Button } from 'shared/ui/button';
+import { Button } from 'shared/ui/Button';
 import { Sidebar } from 'widgets/sidebar/ui';
 
 export default function Home() {
