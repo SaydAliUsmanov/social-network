@@ -1,8 +1,10 @@
-import { PropsWithChildren, HTMLAttributes, useEffect, KeyboardEventHandler } from 'react';
+import { PropsWithChildren, HTMLAttributes, useEffect, useRef, CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
+import { Transition } from 'react-transition-group';
 import { KEY_CODE } from 'shared/constants';
+import { useBoolean } from 'shared/hooks';
 import { fixedFullCss } from 'shared/styles/css';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Backdrop } from '../backdrop';
 
 export type ModalProps = PropsWithChildren<
@@ -30,6 +32,15 @@ const StyledModal = styled.div`
   z-index: ${({ theme }) => theme.zIndex.modal};
 `;
 
+const transitionStyles = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
+} as Record<string, CSSProperties>;
+
+const DURATION = 300;
+
 export const Modal = ({
   open = false,
   container = document.body,
@@ -39,12 +50,26 @@ export const Modal = ({
   hideBackdrop,
   ...props
 }: ModalProps) => {
+  const nodeRef = useRef<HTMLDivElement>(null);
+  const inProp = useBoolean();
+
+  useEffect(() => {
+    if (open) {
+      inProp.setState(open);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inProp.setState, open]);
+
+  useEffect(() => {
+    if (!inProp.state) {
+    }
+  }, [inProp.state]);
+
   useEffect(() => {
     if (open) {
       const handleKeyDown = (e: KeyboardEvent) => {
-        console.log(e);
-        if (e.code === KEY_CODE.Escape && onClose) {
-          onClose();
+        if (e.code === KEY_CODE.Escape) {
+          inProp.setFalse();
         }
       };
       container.addEventListener('keydown', handleKeyDown);
@@ -52,14 +77,29 @@ export const Modal = ({
         container.removeEventListener('keydown', handleKeyDown);
       };
     }
-  }, [onClose, container, open]);
+  }, [container, open]);
 
   return open
     ? createPortal(
-        <StyledModal role='presentation' {...props}>
-          {!hideBackdrop && <BackdropComponent onClick={onClose} />}
-          {children}
-        </StyledModal>,
+        <Transition nodeRef={nodeRef} in={inProp.state} onExited={onClose} timeout={DURATION}>
+          {(state) => {
+            return (
+              <StyledModal
+                ref={nodeRef}
+                role='presentation'
+                css={css`
+                  transition: all 300ms ease-in-out;
+                  opacity: 0;
+                `}
+                style={transitionStyles[state]}
+                {...props}
+              >
+                {!hideBackdrop && <BackdropComponent onClick={inProp.setFalse} />}
+                {children}
+              </StyledModal>
+            );
+          }}
+        </Transition>,
         container,
       )
     : null;

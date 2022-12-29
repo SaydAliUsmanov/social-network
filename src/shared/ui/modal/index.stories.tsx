@@ -20,5 +20,5 @@ const Template: ComponentStory<typeof Modal> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  children: 'Modal Children',
+  children: <div>sdfsdfsfdsf</div>,
 };

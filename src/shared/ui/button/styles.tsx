@@ -23,7 +23,7 @@ export const Root = styled.button<{
   display: inline-flex;
   align-items: center;
   ${({ theme }) => theme.typography.displayMedium};
-  transition: all 150ms linear;
+  transition: all 150ms ease-in-out;
 
   transform: scale(${({ touched }) => (touched ? 0.95 : 1)});
 
