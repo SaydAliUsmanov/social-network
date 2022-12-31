@@ -57,13 +57,7 @@ export const Modal = ({
     if (open) {
       inProp.setState(open);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inProp.setState, open]);
-
-  useEffect(() => {
-    if (!inProp.state) {
-    }
-  }, [inProp.state]);
 
   useEffect(() => {
     if (open) {
@@ -82,23 +76,21 @@ export const Modal = ({
   return open
     ? createPortal(
         <Transition nodeRef={nodeRef} in={inProp.state} onExited={onClose} timeout={DURATION}>
-          {(state) => {
-            return (
-              <StyledModal
-                ref={nodeRef}
-                role='presentation'
-                css={css`
-                  transition: all 300ms ease-in-out;
-                  opacity: 0;
-                `}
-                style={transitionStyles[state]}
-                {...props}
-              >
-                {!hideBackdrop && <BackdropComponent onClick={inProp.setFalse} />}
-                {children}
-              </StyledModal>
-            );
-          }}
+          {(state) => (
+            <StyledModal
+              ref={nodeRef}
+              role='presentation'
+              css={css`
+                transition: all 300ms ease-in-out;
+                opacity: 0;
+              `}
+              style={transitionStyles[state]}
+              {...props}
+            >
+              {!hideBackdrop && <BackdropComponent onClick={inProp.setFalse} />}
+              {children}
+            </StyledModal>
+          )}
         </Transition>,
         container,
       )

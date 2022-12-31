@@ -2,6 +2,8 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "extends": [
+    "airbnb",
+    "airbnb-typescript",
     "plugin:storybook/recommended",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
@@ -11,9 +13,23 @@
     "@typescript-eslint", 
     "prettier"
   ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "react/function-component-definition": ["error", {
+      "namedComponents": ["function-declaration", "arrow-function"],
+      "unnamedComponents": ["arrow-function"]
+    }],
+
+    // не всегда работает как ожидалось https://github.com/facebook/react/issues/15924#issuecomment-521253636 - один из способов решения, но он не мне не понравился
+    "react-hooks/exhaustive-deps": "off",
+    "consistent-return": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off"
   }
 }
