@@ -1,19 +1,7 @@
-import { HTMLAttributes, MouseEventHandler, ReactNode, useRef } from 'react';
+import { MouseEventHandler, useRef } from 'react';
 import { useBoolean } from 'shared/hooks';
-import { ColorKeys } from 'shared/styles/styled';
 import * as Styles from './Button.styles';
-
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  variant?: 'outlined' | 'contained' | 'text';
-  /**
-   * Делает высоту чуть меньше
-   */
-  small?: boolean;
-  color?: ColorKeys;
-  startIcon?: ReactNode;
-  endIcon?: ReactNode;
-  as?: React.ElementType;
-}
+import { ButtonProps } from './types';
 
 export const buttonClasses = {
   startIcon: 'startIcon',

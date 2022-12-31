@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { createGlobalStyle } from 'styled-components';
 
-import { Sidebar } from './';
+import { Sidebar } from '.';
 
 export default {
   title: 'widgets/Sidebar',

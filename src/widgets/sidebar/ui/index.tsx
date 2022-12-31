@@ -38,34 +38,30 @@ const items = [
   },
 ];
 
-export const Sidebar = () => {
-  return (
-    <Styles.Nav>
-      <Styles.Ul>
-        {items.map((item) => {
-          return (
-            <Styles.Li key={item.key}>
-              <Link href='/posts'>
-                <Button
-                  variant='text'
-                  {...(item.key === 'notification' && { variant: 'contained' })}
-                  color='text'
-                  startIcon={item.icon}
-                  css={css`
-                    width: 100%;
-                    font-size: 1rem;
-                    & .${buttonClasses.startIcon} {
-                      margin-right: 12px;
-                    }
-                  `}
-                >
-                  {item.name}
-                </Button>
-              </Link>
-            </Styles.Li>
-          );
-        })}
-      </Styles.Ul>
-    </Styles.Nav>
-  );
-};
+export const Sidebar = () => (
+  <Styles.Nav>
+    <Styles.Ul>
+      {items.map((item) => (
+        <Styles.Li key={item.key}>
+          <Link href='/posts'>
+            <Button
+              variant='text'
+              {...(item.key === 'notification' && { variant: 'contained' })}
+              color='text'
+              startIcon={item.icon}
+              css={css`
+                width: 100%;
+                font-size: 1rem;
+                & .${buttonClasses.startIcon} {
+                  margin-right: 12px;
+                }
+              `}
+            >
+              {item.name}
+            </Button>
+          </Link>
+        </Styles.Li>
+      ))}
+    </Styles.Ul>
+  </Styles.Nav>
+);

@@ -28,6 +28,6 @@ const P = styled.p<{ variant: TypographyProps['variant'] }>`
   }}
 `;
 
-export const Typography = ({ variant = 'displayMedium', ...props }: TypographyProps) => {
-  return <P variant={variant} {...props} />;
-};
+export const Typography = ({ variant = 'displayMedium', ...props }: TypographyProps) => (
+  <P variant={variant} {...props} />
+);

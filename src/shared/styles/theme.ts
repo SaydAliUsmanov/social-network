@@ -2,14 +2,13 @@
 import { css, DefaultTheme } from 'styled-components';
 import { IBreakpoints, IShape, ITypography, MediaCreator, ZIndex } from './styled';
 
-const generateMediaCreator = (type: string): MediaCreator => {
-  return function (breakpoint) {
-    //@ts-expect-error
+const generateMediaCreator = (type: string): MediaCreator =>
+  function mediaCreator(breakpoint) {
+    // @ts-expect-error
     const breakpoints = this as unknown as IBreakpoints;
 
     return `@media (${type}-width: ${breakpoints[breakpoint] || ''}px)`;
   };
-};
 
 const breakpoints: DefaultTheme['breakpoints'] = {
   desktop: 1440,

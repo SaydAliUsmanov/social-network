@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { ButtonProps } from '.';
 import pSBC from 'shade-blend-color';
+import { ButtonProps } from './types';
 
 type RequiredButtonProps = Required<ButtonProps>;
 
@@ -42,7 +42,7 @@ export const Root = styled.button<{
             color: #fff;
           }
         `;
-      case 'outlined':
+      default:
         return css`
           background-color: transparent;
           color: ${theme.colors[color]};

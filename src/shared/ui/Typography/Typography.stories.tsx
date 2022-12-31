@@ -6,11 +6,7 @@ export default {
   component: Typography,
 } as ComponentMeta<typeof Typography>;
 
-const Template: ComponentStory<typeof Typography> = (args) => (
-  <>
-    <Typography {...args} />
-  </>
-);
+const Template: ComponentStory<typeof Typography> = (args) => <Typography {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
