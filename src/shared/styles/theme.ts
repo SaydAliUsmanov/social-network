@@ -50,7 +50,7 @@ const typography: ITypography = {
     font-weight: 700;
   `,
   displayMedium: css`
-    font-size: 14px;
+    font-size: 16px;
     line-height: 22px;
     font-weight: 500;
   `,
@@ -66,7 +66,7 @@ const typography: ITypography = {
   `,
   bodyRegular: css`
     font-size: 14px;
-    font-weight: 22px;
+    line-height: 22px;
     font-weight: 400;
   `,
 
