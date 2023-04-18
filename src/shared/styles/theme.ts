@@ -10,7 +10,7 @@ const generateMediaCreator = (type: string): MediaCreator =>
     return `@media (${type}-width: ${breakpoints[breakpoint] || ''}px)`;
   };
 
-const breakpoints: DefaultTheme['breakpoints'] = {
+export const breakpoints: DefaultTheme['breakpoints'] = {
   desktop: 1440,
   laptop: 1024,
   tablet: 768,
@@ -19,16 +19,16 @@ const breakpoints: DefaultTheme['breakpoints'] = {
   min: generateMediaCreator('min'),
 };
 
-const shadows: string[] = [
+export const shadows: string[] = [
   '0px 1px 4px 0px rgba(0, 0, 0, 0.14)',
   '0px 1px 8px 0px rgba(0, 0, 0, 0.14)',
 ];
 
-const shape: IShape = {
+export const shape: IShape = {
   borderRadius: '8px',
 };
 
-const typography: ITypography = {
+export const typography: ITypography = {
   heading1: css`
     font-size: 30px;
     line-height: 46px;
@@ -97,11 +97,11 @@ const typography: ITypography = {
   `,
 };
 
-const zIndex: ZIndex = {
+export const zIndex: ZIndex = {
   modal: 1500,
 };
 
-const common = {
+export const common = {
   breakpoints,
   shadows,
   shape,

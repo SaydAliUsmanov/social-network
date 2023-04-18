@@ -68,8 +68,8 @@ const iconStyle = css`
   display: flex;
   align-items: center;
   & svg {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1em;
+    height: 1em;
   }
 `;
 

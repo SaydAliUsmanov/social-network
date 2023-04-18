@@ -1,25 +1,21 @@
-import {
-  IconNotification,
-  IconMessages,
-  IconUser,
-  IconSettings2,
-  IconLayoutDashboard,
-} from '@tabler/icons';
+import { IconNotification, IconUser, IconSettings2 } from '@tabler/icons';
 import Link from 'next/link';
+import { Home } from 'shared/icons/Home';
 import { Button, buttonClasses } from 'shared/ui/Button';
 import { css } from 'styled-components';
-import * as Styles from './styles';
+import { Community } from 'shared/icons/Community';
+import * as Styles from './Sidebar.styles';
 
 const items = [
   {
     key: 'home',
     name: 'Главная ',
-    icon: <IconLayoutDashboard stroke={1.5} />,
+    icon: <Home />,
   },
   {
     key: 'messages',
     name: 'Сообщения ',
-    icon: <IconMessages stroke={1.5} />,
+    icon: <Community />,
   },
   {
     key: 'notification',
@@ -52,6 +48,8 @@ export const Sidebar = () => (
               css={css`
                 width: 100%;
                 font-size: 1rem;
+                padding: 20px 15px;
+                height: auto;
                 & .${buttonClasses.startIcon} {
                   margin-right: 12px;
                 }

@@ -1,5 +1,5 @@
 import { Button } from 'shared/ui/Button';
-import { Sidebar } from 'widgets/sidebar/ui';
+import { Sidebar } from 'widgets/sidebar/ui/Sidebar';
 
 export default function Home() {
   return (

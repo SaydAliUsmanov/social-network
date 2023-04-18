@@ -4,10 +4,10 @@ import { ITypography } from 'shared/styles/styled';
 import styled from 'styled-components';
 
 export interface TypographyProps extends HTMLAttributes<HTMLElement> {
-  variant: keyof ITypography | GenerateBreakpointsObject<keyof ITypography>;
+  variant?: keyof ITypography | GenerateBreakpointsObject<keyof ITypography>;
 }
 
-const P = styled.p<{ variant: TypographyProps['variant'] }>`
+const P = styled.p<{ variant: NonNullable<TypographyProps['variant']> }>`
   ${({ theme, variant }) => {
     if (typeof variant === 'string') {
       return theme.typography[variant];

@@ -1,5 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Typography } from '.';
+import { css } from 'styled-components';
+import { ITypography } from 'shared/styles/styled';
+import { typography } from 'shared/styles';
+import { Typography } from './Typography';
 
 export default {
   title: 'ui/Typography',
@@ -11,9 +14,20 @@ const Template: ComponentStory<typeof Typography> = (args) => <Typography {...ar
 export const Default = Template.bind({});
 Default.args = {
   children: 'Typography',
-  variant: {
-    mobile: 'heading1',
-    tablet: 'displayBold',
-    default: 'heading1',
-  },
 };
+
+export const All = () => (
+  <div
+    css={css`
+      & > * {
+        margin-bottom: 8px;
+      }
+    `}
+  >
+    {Object.keys(typography).map((typograpyName) => (
+      <Typography key={typograpyName} variant={typograpyName as keyof ITypography}>
+        {typograpyName}
+      </Typography>
+    ))}
+  </div>
+);
