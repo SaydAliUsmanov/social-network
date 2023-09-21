@@ -25,7 +25,7 @@ export const shadows: string[] = [
 ];
 
 export const shape: IShape = {
-  borderRadius: '8px',
+  borderRadius: '10px',
 };
 
 export const typography: ITypography = {

@@ -42,7 +42,7 @@ export const Root = styled.button<{
             color: #fff;
           }
         `;
-      default:
+      case 'outlined':
         return css`
           background-color: transparent;
           color: ${theme.colors[color]};
@@ -54,6 +54,8 @@ export const Root = styled.button<{
             border-color: ${pSBC(PERCENTAGE, theme.colors[color])};
           }
         `;
+      default:
+        return '';
     }
   }}
 
@@ -76,11 +78,9 @@ const iconStyle = css`
 export const StartIcon = styled.span`
   ${iconStyle}
   margin-right: 6px;
-  margin-left: -1px;
 `;
 
 export const EndIcon = styled.span`
   ${iconStyle}
   margin-left: 6px;
-  margin-right: -1px;
 `;
